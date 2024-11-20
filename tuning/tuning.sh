@@ -16,8 +16,8 @@ python3 first_wave_main.py solar_long ChronOMP SVRModel 1
 python3 first_wave_main.py traffic_long ChronOMP SVRModel 1
 
 python3 first_wave_main.py electricity_long NoSelection SVRModel 1
-python3 first_wave_main.py NoisyVAR_2500 NoSelection SVRModel 1
-python3 first_wave_main.py NoisyVAR_500 NoSelection SVRModel 1
+python3 first_wave_main.py solar_long NoSelection SVRModel 1
+python3 first_wave_main.py traffic_long NoSelection SVRModel 1
 
 python3 first_wave_main.py electricity_long GroupLasso SVRModel 1
 python3 first_wave_main.py solar_long GroupLasso SVRModel 1

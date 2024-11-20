@@ -29,7 +29,7 @@ def full_results_generator(datasets, rootdir = "../", seed=0):
             if not os.path.isfile(rootdir + "data/" + data_dir + "/" + filename):
                 continue
     
-            data, var, cause_dict, _ = open_dataset_and_ground_truth(data_dir, filename, "parents", rootdir)
+            data, var, cause_dict, _ = open_dataset_and_ground_truth(data_dir, filename, rootdir)
             # make sure to avoid extracting all targets in large datasets
             if target_extraction == "all":
                 target_set = var

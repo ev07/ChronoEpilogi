@@ -10,7 +10,7 @@ import numpy as np
 rootdir = '../'
 sys.path.append(rootdir)
 
-from baselines.estimators import Estimator, ARDLModel, SVRModel, KNeighborsRegressorModel, DeepARModel, TFTModel, LSTMModel, XGBRegressorModel
+from baselines.estimators import Estimator, ARDLModel, SVRModel, KNeighborsRegressorModel, DeepARModel, TFTModel, XGBRegressorModel
 from baselines.feature_selection import ChronOMP, BackwardChronOMP, GroupLasso, NoSelection
 
 
@@ -55,7 +55,6 @@ def get_CLS(config_file):
     "SVRModel": SVRModel, 
     "KNeighborsRegressorModel": KNeighborsRegressorModel,
     "TFTModel":TFTModel,
-    "LSTMModel":LSTMModel,
     "XGBRegressorModel":XGBRegressorModel,
     "DeepARModel":DeepARModel
     }[name]
@@ -113,7 +112,7 @@ def data_generator_main(config_file, rootdir="../", seed=0, ):
         if not os.path.isfile(rootdir + "data/" + data_dir + "/" + filename):
             continue
         
-        data, var, causes, lagged_causes = open_dataset_and_ground_truth(data_dir, filename, cause_extraction, rootdir)
+        data, var, causes, lagged_causes = open_dataset_and_ground_truth(data_dir, filename, rootdir)
         
         # remove hold out test set if given
         if holdout:

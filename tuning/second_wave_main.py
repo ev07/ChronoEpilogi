@@ -116,7 +116,7 @@ def full_experiment(dataset, fs_name, cls_name, proxy_cls_name, experiment_ident
             continue
         print("New file",filename ,"time since begining is", time.time()-start_time, "(", i, "/", len(filelist), ")")
         
-        _, var, _, _ = open_dataset_and_ground_truth(data_dir, filename, "parents", rootdir, skip_causal_step=True)
+        _, var, _, _ = open_dataset_and_ground_truth(data_dir, filename, rootdir)
         # make sure to avoid extracting all targets in large datasets
         if target_extraction == "all":
             target_set = var

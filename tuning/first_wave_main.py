@@ -329,7 +329,7 @@ def full_experiment(dataset, fs_name, cls_name, experiment_identifier, seed=0):
             continue
         print("New file",filename ,"time since begining is", time.time()-start_time, "(", i, "/", len(filelist), ")")
         
-        _, var, _, _ = open_dataset_and_ground_truth(data_dir, filename, "parents", rootdir, skip_causal_step=True)
+        _, var, _, _ = open_dataset_and_ground_truth(data_dir, filename, rootdir)
         # make sure to avoid extracting all targets in large datasets
         if target_extraction == "all":
             target_set = var
@@ -359,7 +359,7 @@ def full_experiment(dataset, fs_name, cls_name, experiment_identifier, seed=0):
             space = {**fs_space, **cls_space}
         
             # GridSampler launch
-            studylength = np.prod([len(x) for _,x in space.items()])
+            studylength = np.prod([len(x) for _open_data,x in space.items()])
             if first_evaluation_flag:
                 print("\t\tNumber of configurations to be evaluated:",studylength)
             objective, results = generate_optuna_objective_function(fs_name, cls_name, dataset_setup)

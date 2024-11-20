@@ -27,7 +27,7 @@ def open_dataset_and_ground_truth(dataset_name: str,
 
     if dataset_name=="monash/electricity" or\
          dataset_name=="monash/traffic" or\
-         dataset_name=="monash/solar" or\
+         dataset_name=="monash/solar":
         df = pd.read_csv(rootdir + "/data/" + dataset_name + "/" + filename)
         df.columns = [str(i) for i in df.columns]
     elif dataset_name=="equivalence_datasets/NoisyVAR":
